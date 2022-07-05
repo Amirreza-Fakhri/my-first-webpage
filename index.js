@@ -113,33 +113,32 @@ $(document).ready(function () {
       inter = setTimeout(function () {
         $("#mes_div .succes_fail_mes").fadeOut(600, function () {
           $(this).remove();
+          $("#mes_div .succes_fail_mes").mouseenter(function () {
+            $("#mes_div .succes_fail_mes").stop(true);
+            $("#mes_div .succes_bar_inner").stop(true);
+            $("#mes_div .succes_bar_inner").animate(
+              { width: "100%" },
+              50,
+              "linear"
+            );
+
+            $("#mes_div .succes_fail_mes").fadeIn(50);
+            clearTimeout(inter);
+          });
+          $("#mes_div .succes_fail_mes").mouseleave(function () {
+            $("#mes_div .succes_bar_inner").animate(
+              { width: "0%" },
+              4000,
+              "linear"
+            );
+            inter = setTimeout(function () {
+              $("#mes_div .succes_fail_mes").fadeOut(600, function () {
+                $(this).remove();
+              });
+            }, 4000);
+          });
         });
       }, 4000);
-
-      $("#mes_div .succes_fail_mes").mouseenter(function () {
-        $("#mes_div .succes_fail_mes").stop(true);
-        $("#mes_div .succes_bar_inner").stop(true);
-        $("#mes_div .succes_bar_inner").animate(
-          { width: "100%" },
-          50,
-          "linear"
-        );
-
-        $("#mes_div .succes_fail_mes").fadeIn(50);
-        clearTimeout(inter);
-      });
-      $("#mes_div .succes_fail_mes").mouseleave(function () {
-        $("#mes_div .succes_bar_inner").animate(
-          { width: "0%" },
-          4000,
-          "linear"
-        );
-        inter = setTimeout(function () {
-          $("#mes_div .succes_fail_mes").fadeOut(600, function () {
-            $(this).remove();
-          });
-        }, 4000);
-      });
     } else {
       clearTimeout(inter);
       $("#mes_div .succes_fail_mes").fadeOut(200, function () {
@@ -157,25 +156,32 @@ $(document).ready(function () {
       inter = setTimeout(function () {
         $("#mes_div .succes_fail_mes").fadeOut(600, function () {
           $(this).remove();
+          $("#mes_div .succes_fail_mes").mouseenter(function () {
+            $("#mes_div .succes_fail_mes").stop(true);
+            $("#mes_div .fail_bar_inner").stop(true);
+            $("#mes_div .fail_bar_inner").animate(
+              { width: "100%" },
+              50,
+              "linear"
+            );
+
+            $("#mes_div .succes_fail_mes").fadeIn(50);
+            clearTimeout(inter);
+          });
+          $("#mes_div .succes_fail_mes").mouseleave(function () {
+            $("#mes_div .fail_bar_inner").animate(
+              { width: "0%" },
+              4000,
+              "linear"
+            );
+            inter = setTimeout(function () {
+              $("#mes_div .succes_fail_mes").fadeOut(600, function () {
+                $(this).remove();
+              });
+            }, 4000);
+          });
         });
       }, 4000);
-
-      $("#mes_div .succes_fail_mes").mouseenter(function () {
-        $("#mes_div .succes_fail_mes").stop(true);
-        $("#mes_div .fail_bar_inner").stop(true);
-        $("#mes_div .fail_bar_inner").animate({ width: "100%" }, 50, "linear");
-
-        $("#mes_div .succes_fail_mes").fadeIn(50);
-        clearTimeout(inter);
-      });
-      $("#mes_div .succes_fail_mes").mouseleave(function () {
-        $("#mes_div .fail_bar_inner").animate({ width: "0%" }, 4000, "linear");
-        inter = setTimeout(function () {
-          $("#mes_div .succes_fail_mes").fadeOut(600, function () {
-            $(this).remove();
-          });
-        }, 4000);
-      });
     }
   }
 
